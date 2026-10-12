@@ -1,0 +1,177 @@
+{
+  "area": "Ås, Akershus and nearby (roughly within 15 km)",
+  "origin": {
+    "label": "Ås stasjon",
+    "lat": 59.6630433,
+    "lon": 10.7944912
+  },
+  "distance_note": "approx_km_from_as is straight-line distance from Ås stasjon (Nominatim geocode). Road distance is usually a bit longer. A few shops just over 15 km are included as nearest Follo options.",
+  "generated_at_oslo": "2026-10-12T15:52:00+02:00",
+  "counts": {
+    "coop-extra": 8,
+    "kiwi": 7,
+    "meny": 5,
+    "coop-obs": 1,
+    "coop-mega": 1
+  },
+  "shops": [
+    {
+      "chain": "coop-extra",
+      "name": "Extra Ås",
+      "address": "Idrettsveien 1, 1434 Ås",
+      "url": "https://www.coop.no/butikker/extra/extra-as-1008",
+      "approx_km_from_as": 0.6
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Raveien",
+      "address": "Brekkeveien 1, 1430 Ås",
+      "url": "https://www.coop.no/butikker/extra/extra-raveien-3313",
+      "approx_km_from_as": 0.8
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 541 Ås",
+      "address": "Brekkeveien 3A, 1430 Ås",
+      "url": "https://kiwi.no/finn-butikk/kiwi-541-as",
+      "approx_km_from_as": 0.8
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Solberg Øst",
+      "address": "Granheimtunet 3, 1430 Ås",
+      "url": "https://www.coop.no/butikker/extra/extra-solberg-ost-2689",
+      "approx_km_from_as": 6.2
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Ski",
+      "address": "Kjeppestadveien 2, 1400 Ski",
+      "url": "https://www.coop.no/butikker/extra/extra-ski-4073",
+      "approx_km_from_as": 6.3
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 458 Nordbyveien",
+      "address": "Nordbyveien 76, 1406 Ski",
+      "url": "https://kiwi.no/finn-butikk/kiwi-458-nordbyveien",
+      "approx_km_from_as": 6.3
+    },
+    {
+      "chain": "meny",
+      "name": "MENY Ski Storsenter",
+      "address": "Jernbanesvingen 6, 1400 Ski",
+      "url": "https://meny.no/finn-butikk/meny-ski-storsenter",
+      "approx_km_from_as": 6.4
+    },
+    {
+      "chain": "meny",
+      "name": "MENY Ski",
+      "address": "Eikeliv 1, 1400 Ski",
+      "url": "https://meny.no/finn-butikk/meny-ski",
+      "approx_km_from_as": 6.5,
+      "note": "Distance estimated from Ski centre / Ski Storsenter"
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 599 Vestby",
+      "address": "Vestbyveien 31, 1543 Vestby",
+      "url": "https://kiwi.no/finn-butikk/kiwi-599-vestby",
+      "approx_km_from_as": 6.7
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 293 Ski Stasjon",
+      "address": "Nordbyveien 2, 1423 Ski",
+      "url": "https://kiwi.no/finn-butikk/kiwi-293-ski-stasjon",
+      "approx_km_from_as": 6.8
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Vestby Senter",
+      "address": "Senterveien 6, 1543 Vestby",
+      "url": "https://www.coop.no/butikker/extra/extra-vestby-senter-2861",
+      "approx_km_from_as": 7.3
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Vestby",
+      "address": "Garderveien 15, 1540 Vestby",
+      "url": "https://www.coop.no/butikker/extra/extra-vestby-1012",
+      "approx_km_from_as": 7.5
+    },
+    {
+      "chain": "meny",
+      "name": "MENY Drøbak City",
+      "address": "Holterveien 3, 1448 Drøbak",
+      "url": "https://meny.no/finn-butikk/meny-drobak-city",
+      "approx_km_from_as": 7.7
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 590 Heer",
+      "address": "Heerveien 9, 1445 Drøbak",
+      "url": "https://kiwi.no/finn-butikk/kiwi-590-heer",
+      "approx_km_from_as": 7.9
+    },
+    {
+      "chain": "coop-obs",
+      "name": "Obs Vinterbro",
+      "address": "Sjøskogveien 7, 1407 Vinterbro",
+      "url": "https://www.obs.no/butikker/obs-vinterbro-ost",
+      "approx_km_from_as": 8.0,
+      "note": "Distance estimated from Vinterbro area (~Extra Nesset)"
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Nesset",
+      "address": "Nessetveien 69, 1407 Vinterbro",
+      "url": "https://www.coop.no/butikker/extra/extra-nesset-2632",
+      "approx_km_from_as": 8.2
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 975 Langhus Gård",
+      "address": "Hilda Langhus' vei 1, 1405 Langhus",
+      "url": "https://kiwi.no/finn-butikk/kiwi-975-langhus-gard",
+      "approx_km_from_as": 9.5
+    },
+    {
+      "chain": "coop-extra",
+      "name": "Extra Langhus",
+      "address": "Gamle Vevelstadvei 2C, 1405 Langhus",
+      "url": "https://www.coop.no/butikker/extra/extra-langhus-4325",
+      "approx_km_from_as": 10.4
+    },
+    {
+      "chain": "meny",
+      "name": "MENY Langhus",
+      "address": "Langhussenteret 1, 1405 Langhus",
+      "url": "https://meny.no/finn-butikk/meny-langhus",
+      "approx_km_from_as": 10.5
+    },
+    {
+      "chain": "meny",
+      "name": "MENY Greverud",
+      "address": "Flåtestadveien 3, 1415 Oppegård",
+      "url": "https://meny.no/finn-butikk/meny-greverud",
+      "approx_km_from_as": 12.4
+    },
+    {
+      "chain": "coop-mega",
+      "name": "Coop Mega Kolbotn",
+      "address": "Kolbotnveien 35, 1410 Kolbotn",
+      "url": "https://www.coop.no/butikker/coop-mega/coop-mega-kolbotn-1005",
+      "approx_km_from_as": 16.4,
+      "note": "Slightly over 15 km straight-line from Ås; nearest Mega in Follo"
+    },
+    {
+      "chain": "kiwi",
+      "name": "KIWI 961 Skolebakken",
+      "address": "Kolbotnveien 6, 1410 Kolbotn",
+      "url": "https://kiwi.no/finn-butikk/kiwi-961-skolebakken",
+      "approx_km_from_as": 16.4,
+      "note": "Slightly over 15 km straight-line from Ås"
+    }
+  ]
+}
