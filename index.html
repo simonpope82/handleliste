@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Handleliste</title><link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1e9e4a"><link rel="apple-touch-icon" href="icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box}body{margin:0;font:600 20px/1.3 system-ui,Verdana,sans-serif;background:#f4f6f4;color:#1b1b1b}
 header{position:sticky;top:0;background:#fff;padding:10px 12px;box-shadow:0 2px 6px #0002;z-index:5}
@@ -22,12 +22,13 @@ main{padding:10px 12px 140px}
 .fab{position:fixed;bottom:18px;width:84px;height:84px;border-radius:50%;border:0;font-size:46px;color:#fff;box-shadow:0 4px 10px #0004}
 #plus{right:18px;background:#1e9e4a}#mic{left:18px;background:#1565c0}#mic.live{background:#d32f2f;animation:p 1s infinite}
 @keyframes p{50%{transform:scale(1.1)}}
-dialog{border:0;border-radius:20px;width:94vw;max-width:520px;padding:16px}
-dialog input{width:100%;font-size:28px;padding:14px;border:3px solid #1e9e4a;border-radius:14px}
+.sheet{position:fixed;inset:0;background:#0007;z-index:20;overflow-y:auto;padding:12px}.sheet[hidden]{display:none}.sheet form{background:#fff;border-radius:20px;max-width:520px;margin:0 auto;padding:16px}
+.sheet input{width:100%;font-size:28px;padding:14px;border:3px solid #1e9e4a;border-radius:14px}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
 .tile{border:3px solid #ddd;border-radius:16px;background:#fff;padding:8px;aspect-ratio:1;display:flex;align-items:center;justify-content:center}
 .tile.on{border-color:#1e9e4a;background:#e7f6ec}.tile img{max-width:100%;max-height:100%}
-.shops button{display:flex;width:100%;justify-content:space-between;font-size:20px;padding:12px;margin:5px 0;border:2px solid #ddd;border-radius:12px;background:#fff}
+.shops button{display:flex;width:100%;justify-content:space-between;align-items:center;gap:10px;text-align:left;color:#1b1b1b;min-height:56px;font-size:20px;padding:12px;margin:5px 0;border:2px solid #ddd;border-radius:12px;background:#fff}
+.shops button span:first-child{flex:1;min-width:0}.shops button span+span{flex:none;color:#555}
 .shops button.on{border-color:#1e9e4a;background:#e7f6ec}
 .big{width:100%;font-size:26px;padding:16px;border:0;border-radius:16px;background:#1e9e4a;color:#fff;margin-top:8px}
 .ghost{background:#eee;color:#222}.empty{text-align:center;font-size:70px;margin-top:40px;opacity:.5}
@@ -37,7 +38,7 @@ dialog input{width:100%;font-size:28px;padding:14px;border:3px solid #1e9e4a;bor
 <main id="list"></main>
 <button class="fab" id="mic" aria-label="Snakk">🎤</button><button class="fab" id="plus" aria-label="Legg til">＋</button>
 <div id="toast"></div>
-<dialog id="add"><form method="dialog" id="addf"><input id="txt" placeholder="🥛 ..." autocomplete="off">
+<div id="add" class="sheet" hidden><form id="addf" action="#"><input id="txt" placeholder="🥛 ..." autocomplete="off">
 <div class="tiles" id="tiles"></div><div class="shops" id="shops"></div>
-<button class="big" value="ok">✔</button><button class="big ghost" value="no" formnovalidate>✖</button></form></dialog>
-<script src="app.js"></script></body></html>
+<button class="big" type="submit" id="ok">✔</button><button class="big ghost" type="button" id="cancel">✖</button></form></div>
+<script src="app.js?v=2"></script></body></html>

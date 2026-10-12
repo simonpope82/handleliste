@@ -40,8 +40,9 @@ function drawPicker(){
   .map(([s,k])=>`<button type="button" class="${pick=='shop:'+k?'on':''}" data-t="shop:${k}"><span>📍 ${s.name}</span><span>${s.approx_km_from_as} km</span></button>`)).join(''):'';}
 $('tiles').onclick=e=>{const b=e.target.closest('[data-c]');if(!b)return;openChain=openChain==b.dataset.c?null:b.dataset.c;pick=openChain?'chain:'+openChain:null;drawPicker()};
 $('shops').onclick=e=>{const b=e.target.closest('[data-t]');if(b){pick=b.dataset.t;drawPicker()}};
-$('plus').onclick=()=>{$('txt').value='';if(S.filter!='all'){pick=S.filter;openChain=logoOf(pick).slice(6,-4)}drawPicker();$('add').showModal();$('txt').focus()};
-$('add').addEventListener('close',()=>{if($('add').returnValue=='ok'){$('txt').value.split(/,| og | and /).forEach(n=>add(n,pick))}});
+$('plus').onclick=()=>{$('txt').value='';if(S.filter!='all'){pick=S.filter;openChain=logoOf(pick).slice(6,-4)}drawPicker();$('add').hidden=false;$('txt').focus()};
+$('addf').onsubmit=e=>{e.preventDefault();$('txt').value.split(/,| og | and /).forEach(n=>add(n,pick));$('add').hidden=true;$('txt').blur()};
+$('cancel').onclick=()=>{$('add').hidden=true};
 // voice
 function toast(t){$('toast').textContent=t;$('toast').style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>$('toast').style.display='none',3500)}
 function say(t,lang){toast(t);if(!speechSynthesis)return;const u=new SpeechSynthesisUtterance(t);u.lang=lang;speechSynthesis.cancel();speechSynthesis.speak(u)}
@@ -62,5 +63,5 @@ $('mic').onclick=()=>{if(!SR)return say('Mikrofon virker ikke i denne nettlesere
   r.onerror=e=>{$('mic').classList.remove('live');if(e.error=='language-not-supported'&&lang=='nb-NO')run('en-GB');else toast('🎤 ✖')};
   r.onend=()=>$('mic').classList.remove('live');try{r.start()}catch(x){if(lang=='nb-NO')run('en-GB')}};run('nb-NO')};
 if(location.hash=='#demo'&&!S.items.length){[['Melk','chain:kiwi',1],['Poteter','shop:0',1],['Bananer','shop:0',0],['Brød',null,0],['Kylling','chain:coop-extra',0],['Ost',null,0],['Pizza',null,0],['Dopapir',null,0]].forEach(([n,t,d],k)=>S.items.push({id:k+1,name:n,tag:t,done:!!d}))}
-fetch('shops.json').then(r=>r.json()).then(j=>{shops=j.shops;render()});
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+fetch('shops.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{shops=j.shops;render()});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js',{updateViaCache:'none'});
