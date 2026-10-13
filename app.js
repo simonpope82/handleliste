@@ -19,7 +19,8 @@ function split(txt){
 function kwHit(w,k){return w==k||(k.length>=4&&(w.startsWith(k)||w.endsWith(k)))||(w.length>=5&&k.startsWith(w))}
 function cat(n){n=norm(n);if(PHRASES[n])return PHRASES[n];for(const p of PH)if(n.includes(p))return PHRASES[p];
  const ws=n.split(/\s+/);for(let j=ws.length-1;j>=0;j--)for(const c of CATS)for(const k of c[3])if(kwHit(ws[j],k))return c[0];return'annet'}
-let shops=[],S=JSON.parse(localStorage.hl||'{"items":[],"filter":"all"}');
+let shops=[],LAY={},S=JSON.parse(localStorage.hl||'{"items":[],"filter":"shop:0","v":5}');
+if(!S.v){S.v=5;S.filter='shop:0'}
 const save=()=>localStorage.hl=JSON.stringify(S),$=id=>document.getElementById(id);
 const norm=s=>s.toLowerCase().trim();
 const icon=n=>CATS.find(c=>c[0]==cat(n))[1];
@@ -35,9 +36,19 @@ function render(){
  const b=$('branch');b.hidden=!sc;
  if(sc){b.innerHTML=`<option value="chain:${sc}">⭐ ${CH[sc]} – alle</option>`+shops.map((s,k)=>[s,k]).filter(([s])=>s.chain==sc).sort((x,y)=>x[0].approx_km_from_as-y[0].approx_km_from_as).map(([s,k])=>`<option value="shop:${k}">📍 ${s.name} · ${s.approx_km_from_as} km</option>`).join('');b.value=S.filter}
  const row=i=>`<div class="item ${i.done?'done':''}" data-id="${i.id}"><div class="tick" role="checkbox" aria-checked="${i.done}">${i.done?'✔':''}</div><span style="font-size:30px">${icon(i.name)}</span><span class="name">${esc(i.name)}${i.note?` <small>${esc(i.note)}</small>`:''}</span>${i.tag?`<img src="${logoOf(i.tag)}" alt="${nameOf(i.tag)}">`:''}<button class="del" data-del="${i.id}" aria-label="Slett">🗑️</button></div>`;
- let h='';for(const c of CATS){const its=vis.filter(i=>!i.done&&cat(i.name)==c[0]);if(its.length)h+=`<div class="cat">${c[1]} ${c[2]}</div>`+its.map(row).join('')}
+ const L=layout();$('sortlbl').innerHTML=`↕ Sortert etter: <b>${esc(L.who)}</b>${L.mapped?'':' <i>(ikke kartlagt)</i>'}`;
+ const groups=L.sections.map(s=>({s,its:[]})),other=[];vis.filter(i=>!i.done).forEach(i=>{const k=secOf(L,i.name);(k<0?other:groups[k].its).push(i)});
+ let h='';groups.forEach(g=>{if(g.its.length)h+=`<div class="cat">${g.s.emoji||''} ${esc(g.s.name)}</div>`+g.its.map(row).join('')});
+ if(other.length)h+=`<div class="cat">🛒 Annet</div>`+other.map(row).join('');
  const dn=vis.filter(i=>i.done);if(dn.length)h+=`<div class="cat">✔ ${dn.length}</div>`+dn.map(row).join('');
  $('list').innerHTML=h||'<div class="empty">🛒</div>';}
+function shopId(k){return shops[k].url.split('/').pop()}
+function layout(){let who='Standard',keys=['default'];
+ if(S.filter!='all'&&shops.length){const c=selChain();if(S.filter.startsWith('shop:')){const k=+S.filter.slice(5);keys=[shopId(k),c,'default'];who=shops[k].name}else{keys=[c,'default'];who=CH[c]}}
+ for(const k of keys)if(LAY[k]&&LAY[k].sections)return{...LAY[k],who,key:k};return{sections:[],mapped:false,who}}
+function secOf(L,name){const n=norm(name),ws=n.split(/\s+/);
+ for(let j=0;j<L.sections.length;j++)for(const k of (L.sections[j].keywords||[])){const kk=norm(k);if(n==kk||(kk.includes(' ')&&n.includes(kk))||ws.some(w=>kwHit(w,kk)))return j}
+ const c=cat(name);return L.sections.findIndex(s=>(s.categories||[]).includes(c))}
 function selChain(){if(S.filter=='all'||!shops.length)return null;return S.filter.startsWith('shop:')?shops[+S.filter.slice(5)].chain:S.filter.slice(6)}
 $('branch').onchange=e=>{S.filter=e.target.value;save();render()};
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
@@ -71,5 +82,5 @@ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
 $('smic').onclick=()=>{if(!SR)return toast('🎤 ✖');const go=lang=>{const r=new SR();r.lang=lang;$('smic').classList.add('live');
  r.onresult=e=>{const t=e.results[0][0].transcript.replace(/^(legg til|add)\s+/i,'');$('txt').value=($('txt').value?$('txt').value+', ':'')+t};
  r.onerror=e=>{$('smic').classList.remove('live');if(e.error=='language-not-supported'&&lang=='nb-NO')go('en-GB')};r.onend=()=>$('smic').classList.remove('live');try{r.start()}catch(x){}};go('nb-NO')};
-fetch('shops.json',{cache:'no-cache'}).then(r=>r.json()).then(j=>{shops=j.shops;render()});
+Promise.all(['shops.json','layouts.json'].map(f=>fetch(f+'?v='+Date.now(),{cache:'no-store'}).then(r=>r.json()))).then(([j,l])=>{shops=j.shops;LAY=l;render()}).catch(e=>toast('⚠ '+e.message));
 if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js',{updateViaCache:'none'});

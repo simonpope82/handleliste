@@ -1,0 +1,213 @@
+{
+ "extra-as-1008": {
+  "label": "Extra Ås (Idrettsveien 1) – starter, not yet mapped",
+  "mapped": false,
+  "sections": [
+   {
+    "name": "Frukt og grønt",
+    "emoji": "🍎",
+    "categories": [
+     "frukt"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Brød",
+    "emoji": "🍞",
+    "categories": [
+     "brod"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Kjøtt og fisk",
+    "emoji": "🥩",
+    "categories": [
+     "kjott"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Meieri og ost",
+    "emoji": "🧀",
+    "categories": [
+     "meieri"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Tørrvarer",
+    "emoji": "🍝",
+    "categories": [
+     "torr"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Frys",
+    "emoji": "🧊",
+    "categories": [
+     "frys"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Drikke",
+    "emoji": "🥤",
+    "categories": [
+     "drikke"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Hus og hjem",
+    "emoji": "🧻",
+    "categories": [
+     "hus"
+    ],
+    "keywords": []
+   }
+  ]
+ },
+ "coop-extra": {
+  "label": "Extra (chain fallback, not yet mapped)",
+  "mapped": false,
+  "sections": [
+   {
+    "name": "Frukt og grønt",
+    "emoji": "🍎",
+    "categories": [
+     "frukt"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Brød",
+    "emoji": "🍞",
+    "categories": [
+     "brod"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Kjøtt og fisk",
+    "emoji": "🥩",
+    "categories": [
+     "kjott"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Meieri og ost",
+    "emoji": "🧀",
+    "categories": [
+     "meieri"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Tørrvarer",
+    "emoji": "🍝",
+    "categories": [
+     "torr"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Frys",
+    "emoji": "🧊",
+    "categories": [
+     "frys"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Drikke",
+    "emoji": "🥤",
+    "categories": [
+     "drikke"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Hus og hjem",
+    "emoji": "🧻",
+    "categories": [
+     "hus"
+    ],
+    "keywords": []
+   }
+  ]
+ },
+ "default": {
+  "label": "Standard",
+  "mapped": false,
+  "sections": [
+   {
+    "name": "Frukt og grønt",
+    "emoji": "🍎",
+    "categories": [
+     "frukt"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Brød",
+    "emoji": "🍞",
+    "categories": [
+     "brod"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Kjøtt og fisk",
+    "emoji": "🥩",
+    "categories": [
+     "kjott"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Meieri og ost",
+    "emoji": "🧀",
+    "categories": [
+     "meieri"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Tørrvarer",
+    "emoji": "🍝",
+    "categories": [
+     "torr"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Frys",
+    "emoji": "🧊",
+    "categories": [
+     "frys"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Drikke",
+    "emoji": "🥤",
+    "categories": [
+     "drikke"
+    ],
+    "keywords": []
+   },
+   {
+    "name": "Hus og hjem",
+    "emoji": "🧻",
+    "categories": [
+     "hus"
+    ],
+    "keywords": []
+   }
+  ]
+ },
+ "_help": "Keys: a shop id (last part of the shop url in shops.json, e.g. extra-as-1008), a chain id (coop-extra, kiwi, meny, coop-obs, coop-mega) or 'default'. Lookup: shop id, then chain id, then default. Sections are in walking order. An item goes to the first section whose keywords match it, otherwise to the section whose categories contain its category (frukt, brod, kjott, meieri, torr, frys, drikke, hus, annet). Unmatched items go last under 'Annet'. mapped=false shows '(ikke kartlagt)'."
+}
